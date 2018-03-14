@@ -1,10 +1,11 @@
+
 <header class="header dark-bg">
     <div class="toggle-nav">
         <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
     </div>
 
     <!--logo start-->
-    <a href="index.html" class="logo">Nice <span class="lite">Admin</span></a>
+    <a href="index.html" class="logo">My <span class="lite">Admin</span></a>
     <!--logo end-->
 
     <div class="nav search-row" id="top_menu">
@@ -221,12 +222,12 @@
             <!-- alert notification end-->
             <!-- user login dropdown start-->
             <li class="dropdown">
+
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
-                                <img alt="" src="img/avatar1_small.jpg">
+                                <img alt="" src="img/avatar-mini4.jpg">
                             </span>
-                    <span class="username">Jenifer Smith</span>
-                    <b class="caret"></b>
+                    {{ Auth::user()->name }} <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu extended logout">
                     <div class="log-arrow-up"></div>
@@ -243,10 +244,15 @@
                         <a href="#"><i class="icon_chat_alt"></i> Chats</a>
                     </li>
                     <li>
-                        <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
-                    </li>
-                    <li>
-                        <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            <i class="icon_key_alt"></i>Log Out
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </li>
                     <li>
                         <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>

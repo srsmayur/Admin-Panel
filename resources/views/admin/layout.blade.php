@@ -10,9 +10,9 @@
     <link rel="shortcut icon" href="img/favicon.png">
 
     <title>Admin Dashboard</title>
-
     <!-- Bootstrap CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+
     <!-- bootstrap theme -->
     <link href="css/bootstrap-theme.css" rel="stylesheet">
     <!--external css-->
@@ -40,6 +40,7 @@
     <section id="container" class="">
         @include('admin.header.header')
         @include('admin.sidebar.sidebar')
+        @include('admin.section.section')
     </section>
 
     <script src="js/jquery.js"></script>
