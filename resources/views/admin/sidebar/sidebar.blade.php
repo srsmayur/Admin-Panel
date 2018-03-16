@@ -64,11 +64,11 @@
                     <span class="menu-arrow arrow_carrot-right"></span>
                 </a>
                 <ul class="sub">
-                    <li><a class="" href="profile.html">Profile</a></li>
-                    <li><a class="" href="login.html"><span>Login Page</span></a></li>
-                    <li><a class="" href="contact.html"><span>Contact Page</span></a></li>
-                    <li><a class="" href="blank.html">Blank Page</a></li>
-                    <li><a class="" href="404.html">404 Error</a></li>
+                    <li><a class="" href="#">Profile</a></li>
+                    <li><a class="" href="#"><span>Login Page</span></a></li>
+                    <li><a class="" href="#"><span>Contact Page</span></a></li>
+                    <li><a class="" href="#">Blank Page</a></li>
+                    <li><a class="" href="#">404 Error</a></li>
                 </ul>
             </li>
 

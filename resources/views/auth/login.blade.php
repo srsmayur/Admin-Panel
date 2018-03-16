@@ -66,6 +66,13 @@
 
                 <input id="password-confirm" type="password" name="password_confirmation" placeholder="Confirm Password" required>
 
+                <input id="country" type="text" name="country" value="{{ old('country') }}" placeholder="Country (Optional)">
+                <input id="occupation" type="text" name="occupation" value="{{ old('occupation') }}" placeholder="Occupation (Optional)">
+                <input id="mobile" type="text" name="mobile" value="{{ old('mobile') }}" placeholder="Phone (Optional)">
+                <input id="weburl" type="text" name="weburl" value="{{ old('weburl') }}" placeholder="
+Website URL
+ (Optional)">
+
 
                 <button type="submit" class="btn btn-primary">
                     {{ __('Register') }}

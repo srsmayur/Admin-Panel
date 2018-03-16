@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Profile
+Route::any('user/profile', ['as' => 'user.profile', 'uses' => 'UserController@profile']);
+Route::any('user/{id}', ['as' => 'user.edit', 'uses' => 'UserController@edit']);
+Route::any('user/edit/{id}', 'UserController@update');
+

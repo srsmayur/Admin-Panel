@@ -5,7 +5,7 @@
     </div>
 
     <!--logo start-->
-    <a href="index.html" class="logo">My <span class="lite">Admin</span></a>
+    <a href="{{ route('home') }}" class="logo">My <span class="lite">Admin</span></a>
     <!--logo end-->
 
     <div class="nav search-row" id="top_menu">
@@ -232,7 +232,7 @@
                 <ul class="dropdown-menu extended logout">
                     <div class="log-arrow-up"></div>
                     <li class="eborder-top">
-                        <a href="#"><i class="icon_profile"></i> My Profile</a>
+                        <a href="{{ route('user.profile') }}"><i class="icon_profile"></i> My Profile</a>
                     </li>
                     <li>
                         <a href="#"><i class="icon_mail_alt"></i> My Inbox</a>
