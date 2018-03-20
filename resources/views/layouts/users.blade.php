@@ -39,8 +39,8 @@
 </head>
 <body>
 <section id="container" class="">
-  @include('admin.header.header');
-  @include('admin.sidebar.sidebar');
+  @include('layouts.header');
+  @include('layouts.sidebar');
 </section>
 <main class="py-4">
     @yield('content')

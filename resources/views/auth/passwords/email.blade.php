@@ -8,7 +8,7 @@
                     {{ session('status') }}
                 </div>
             @endif
-            <form class="login-form" method="POST" action="{{ route('password.email') }}">
+            <form class="login-form" method="POST" action="<?php echo URL::to('password/reset '); ?>">
                 <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="Email"  required autofocus>
                 @csrf
                 @if ($errors->has('email'))

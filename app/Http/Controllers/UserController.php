@@ -18,7 +18,14 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
+    public function index() {
+
+        $variable = "here";
+
+        return view('auth.login' , ['variable'=> $variable]);
+    }
     public function profile() {
+
         return view('user.show');
     }
     protected  function edit(User $id)

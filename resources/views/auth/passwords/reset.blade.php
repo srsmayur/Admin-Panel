@@ -3,7 +3,7 @@
 @section('content')
     <div class="login-page">
         <div class="form" id="form1">
-            <form class="login-form" method="POST" action="{{ route('password.request') }}">
+            <form class="login-form" method="POST" action="#">
                 @csrf
 
                 <input type="hidden" name="token" value="{{ $token }}">

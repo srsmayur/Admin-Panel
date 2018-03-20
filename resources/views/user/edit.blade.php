@@ -10,13 +10,13 @@
                 <div class="form-group">
                     <label class="col-lg-2 control-label">Full Name</label>
                     <div class="col-lg-6">
-                        <input type="text" class="form-control" id="f-name" value="{{ Auth::user()->name }} ">
+                        <input type="text" class="form-control" id="f-name" value="{{ Auth::user()->name }}">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-lg-2 control-label">Country</label>
                     <div class="col-lg-6">
-                        <input type="text" class="form-control" id="c-name" value="{{ Auth::user()->country }} ">
+                        <input type="text" class="form-control" id="c-name" value="{{ Auth::user()->country }}">
                     </div>
                 </div>
                 <div class="form-group">
@@ -34,13 +34,13 @@
                 <div class="form-group">
                     <label class="col-lg-2 control-label">Mobile</label>
                     <div class="col-lg-6">
-                        <input type="text" class="form-control" id="mobile" value="{{ Auth::user()->mobile }} ">
+                        <input type="text" class="form-control" id="mobile" value="{{ Auth::user()->mobile }}">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-lg-2 control-label">Website URL</label>
                     <div class="col-lg-6">
-                        <input type="text" class="form-control" id="url" value="{{ Auth::user()->weburl }} ">
+                        <input type="text" class="form-control" id="url" value="{{ Auth::user()->weburl }}">
                     </div>
                 </div>
 
