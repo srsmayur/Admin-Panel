@@ -6,8 +6,6 @@
             <form class="login-form" method="POST" action="#">
                 @csrf
 
-                <input type="hidden" name="token" value="{{ $token }}">
-
                 <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="Email"  required autofocus>
 
                 @if ($errors->has('email'))
@@ -25,8 +23,6 @@
                 @endif
 
                 <input id="password-confirm" type="password" name="password_confirmation" placeholder="Confirm Password" required>
-
-
 
                 <button type="submit" class="btn btn-primary">
                     {{ __('Reset Password') }}
