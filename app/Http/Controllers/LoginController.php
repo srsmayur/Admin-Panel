@@ -45,7 +45,7 @@ class LoginController extends Controller
 
         if ( ! Auth::attempt($credentials))
         {
-            return redirect('home')->with('danger', true)->with('message','Please Active Your User Account');
+            return redirect('home')->with('danger', true)->with('message','Something is wrong with you. Please Again');
         }
 
 
@@ -56,11 +56,7 @@ class LoginController extends Controller
     {
         Session::flush();
         Auth::logout();
-        return redirect('home')->with('success', true)->with('message','Your are now logged out!');
-    }
-    public function reset_email()
-    {
-        return view('auth.passwords.email');
+        return redirect('home')->with('success', true)->with('message','Your are now Logout!');
     }
 
 }

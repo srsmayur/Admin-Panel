@@ -55,7 +55,7 @@
                     {{ __('Login') }}
                 </button>
 
-                <a class="btn btn-link" href="<?php echo  URL::to('password/email');?>">
+                <a class="btn btn-link" href="<?php echo  URL::to('password/reset');?>">
                     {{ __('Forgot Your Password?') }}
                 </a>
 

@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class User extends Authenticatable
 {
@@ -26,4 +28,27 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected function create(array $customerArr)
+    {
+        $customerArr = Input::get();
+
+        DB::table('test')->insert(
+            array(
+                'name'     =>  $customerArr['name'],
+                'email'   =>  $customerArr['email'],
+                'password' => $customerArr['password'],
+            )
+        );
+        $userID = DB::getPdo()->lastInsertId();
+
+        if ($userID) {
+            echo "Success";
+        }
+        else{
+            echo "Fail";
+        }
+
+    }
+
 }

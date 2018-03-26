@@ -3,16 +3,10 @@
 @section('content')
     <div class="login-page">
         <div class="form" id="form1">
-            <form class="login-form" method="POST" action="#">
+            <form class="login-form" method="POST" action="<?php echo URL::to('/password/resetpassword'); ?>">
                 @csrf
 
-                <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="Email"  required autofocus>
-
-                @if ($errors->has('email'))
-                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                @endif
+               <input type="hidden" name="password_token" value="{{$verification_code}}">
 
                 <input id="password" type="password" name="password" placeholder="Password" required>
 

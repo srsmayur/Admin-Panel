@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
-
 class RegisterController extends Controller
 {
     public function index()
@@ -111,17 +110,12 @@ class RegisterController extends Controller
 
         if( ! $verification_code)
         {
-            throw new InvalidConfirmationCodeException;
+            return redirect('home')->with('info', true)->with('message',' Your Email is already verified.Please Login here');
         }
         $user = User::whereverification_code($verification_code)->first();
-
-        if (Input::get('active_user') == 1)
+        if ( ! $user)
         {
-            return redirect('home')->with('success', true)->with('message',' Your Email is successfully verified.Please Login here');
-        }
-        else if ( ! $user)
-        {
-            throw new InvalidConfirmationCodeException;
+            return redirect('home')->with('info', true)->with('message',' Your Email is already verified.Please Login here');
         }
 
         $user->active_user = 1;

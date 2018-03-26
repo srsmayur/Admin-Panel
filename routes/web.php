@@ -29,13 +29,22 @@ Route::group(array('before' => 'auth'), function () {
 Route::group(array('before' => 'guest'), function () {
 
 	Route::any('/home','LoginController@index');
+
 	Route::any('/login','LoginController@login');
 	Route::any('/logout','LoginController@dologout');
-	Route::any('/password/email','LoginController@reset_email');
-	Route::any('/password/reset/{token}','LoginController@rest_password');
+
+	//Reset Password
+	Route::any('/password/reset','ResetpasswordController@getemail');
+	Route::any('/password/email','ResetpasswordController@seneResetLinkEmail');
+	Route::any('password/reset/{password_token}', 'ResetpasswordController@showResetForm');
+	Route::any('password/resetpassword', 'ResetpasswordController@reset_pasd');
+
+	Route::any('/password/reset_pasd','ResetpasswordController@reset_pasd');
 	Route::any('/register','RegisterController@register');
 	Route::any('/registration','RegisterController@doRegistration');
+
 	Route::any('/email_verify/{verificationcode}','RegisterController@confirm');
+
 
 	/*
     // Authentication Routes...
