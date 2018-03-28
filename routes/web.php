@@ -21,6 +21,7 @@ Route::group(array('before' => 'auth'), function () {
 	Route::any('user/profile', ['as' => 'user.profile', 'uses' => 'UserController@profile']);
 	Route::any('user/{id}', ['as' => 'user.edit', 'uses' => 'UserController@edit']);
 	Route::any('user/edit/{id}', 'UserController@update');
+	Route::any('chart', 'ChartController@index');
 
 	
 });

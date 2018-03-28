@@ -241,7 +241,7 @@
                         <a href="#"><i class="icon_clock_alt"></i> Timeline</a>
                     </li>
                     <li>
-                        <a href="#"><i class="icon_chat_alt"></i> Chats</a>
+                        <a href="{{URL::to('chart')}}"><i class="icon_chat_alt"></i> Chats</a>
                     </li>
                     <li>
                         <a href="{{URL::to('/logout')}}"><i class="icon_chat_alt"></i> Log Out</a>

@@ -53,8 +53,8 @@
             <!--/.col-->
 
         </div>
-        <!--/.row-->
 
+        <!--/.row-->
 
         <div class="row">
             <div class="col-lg-9 col-md-12">

@@ -43,6 +43,7 @@ class LoginController extends Controller
             'active_user' => 1
         ];
 
+
         if ( ! Auth::attempt($credentials))
         {
             return redirect('home')->with('danger', true)->with('message','Something is wrong with you. Please Again');
