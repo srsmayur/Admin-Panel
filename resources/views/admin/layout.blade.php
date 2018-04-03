@@ -81,7 +81,6 @@
     <script src="{{URL::to('/')}}/js/gdp-data.js"></script>
     <script src="{{URL::to('/')}}/js/morris.min.js"></script>
     <script src="{{URL::to('/')}}/js/sparklines.js"></script>
-    <script src="{{URL::to('/')}}/js/charts.js"></script>
-    <script src="{{URL::to('/')}}/js/jquery.slimscroll.min.js"></script>
+
 </body>
 </html>

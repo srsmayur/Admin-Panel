@@ -3,7 +3,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
             <li class="active">
-                <a class="" href="index.html">
+                <a class="" href="{{URL::to('dashboard')}}">
                     <i class="icon_house_alt"></i>
                     <span>Dashboard</span>
                 </a>
@@ -38,7 +38,7 @@
                 </a>
             </li>
             <li>
-                <a class="" href="chart-chartjs.html">
+                <a class="" href="{{URL::to('chart')}}">
                     <i class="icon_piechart"></i>
                     <span>Charts</span>
 

@@ -5,7 +5,7 @@
     </div>
 
     <!--logo start-->
-    <a href="#" class="logo">My <span class="lite">Admin</span></a>
+    <a href="{{URL::to('dashboard')}}" class="logo">My <span class="lite">Admin</span></a>
     <!--logo end-->
 
     <div class="nav search-row" id="top_menu">

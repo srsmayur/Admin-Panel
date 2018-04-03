@@ -1,128 +1,44 @@
-$(document).ready(function() {
+$(document).ready(function(){
+
+    var url = 'http://localhost/Admin-panel/public/chart';
+    $.ajax({
+        url: url,  //Server script to process data
+        type: 'GET',
+        dataType: 'json',
+        success: function (response) {
 
 
-    var doughnutData = [
-        {
-            value: 30,
-            color:"#F7464A"
         },
-        {
-            value : 50,
-            color : "#46BFBD"
-        },
-        {
-            value : 100,
-            color : "#FDB45C"
-        },
-        {
-            value : 40,
-            color : "#949FB1"
-        },
-        {
-            value : 120,
-            color : "#4D5360"
-        }
+        //Options to tell jQuery not to process data or worry about content-type.
+        cache: false,
+        contentType: false,
+        processData: false
+    });
+var trace1 = {
+    x: [1, 2, 3, 4],
+    y: [10, 15, 13, 17],
+    mode: 'markers',
+    name: 'Scatter'
+};
 
-    ];
-    var lineChartData = {
-        labels : ["","","","","","",""],
-        datasets : [
-            {
-                fillColor : "rgba(220,220,220,0.5)",
-                strokeColor : "rgba(220,220,220,1)",
-                pointColor : "rgba(220,220,220,1)",
-                pointStrokeColor : "#fff",
-                data : [65,59,90,81,56,55,40]
-            },
-            {
-                fillColor : "rgba(151,187,205,0.5)",
-                strokeColor : "rgba(151,187,205,1)",
-                pointColor : "rgba(151,187,205,1)",
-                pointStrokeColor : "#fff",
-                data : [28,48,40,19,96,27,100]
-            }
-        ]
+var trace2 = {
+    x: [2, 3, 4, 5],
+    y: [16, 5, 11, 9],
+    mode: 'lines',
+    name: 'Lines'
+};
 
-    };
-    var pieData = [
-        {
-            value: 30,
-            color:"#F38630"
-        },
-        {
-            value : 50,
-            color : "#E0E4CC"
-        },
-        {
-            value : 100,
-            color : "#69D2E7"
-        }
+var data = [trace1, trace2];
 
-    ];
-    var barChartData = {
-        labels : ["January","February","March","April","May","June","July"],
-        datasets : [
-            {
-                fillColor : "rgba(220,220,220,0.5)",
-                strokeColor : "rgba(220,220,220,1)",
-                data : [65,59,90,81,56,55,40]
-            },
-            {
-                fillColor : "rgba(151,187,205,0.5)",
-                strokeColor : "rgba(151,187,205,1)",
-                data : [28,48,40,19,96,27,100]
-            }
-        ]
+var layout = {
+    title: 'Title of the Graph',
+    xaxis: {
+        title: 'x-axis title'
+    },
+    yaxis: {
+        title: 'y-axis title'
+    }
+};
 
-    };
-    var chartData = [
-        {
-            value : Math.random(),
-            color: "#D97041"
-        },
-        {
-            value : Math.random(),
-            color: "#C7604C"
-        },
-        {
-            value : Math.random(),
-            color: "#21323D"
-        },
-        {
-            value : Math.random(),
-            color: "#9D9B7F"
-        },
-        {
-            value : Math.random(),
-            color: "#7D4F6D"
-        },
-        {
-            value : Math.random(),
-            color: "#584A5E"
-        }
-    ];
-    var radarChartData = {
-        labels : ["","","","","","",""],
-        datasets : [
-            {
-                fillColor : "rgba(220,220,220,0.5)",
-                strokeColor : "rgba(220,220,220,1)",
-                pointColor : "rgba(220,220,220,1)",
-                pointStrokeColor : "#fff",
-                data : [65,59,90,81,56,55,40]
-            },
-            {
-                fillColor : "rgba(151,187,205,0.5)",
-                strokeColor : "rgba(151,187,205,1)",
-                pointColor : "rgba(151,187,205,1)",
-                pointStrokeColor : "#fff",
-                data : [28,48,40,19,96,27,100]
-            }
-        ]
-
-    };
-
-    new Chart(document.getElementById("line").getContext("2d")).Line(lineChartData);
-
-
+Plotly.newPlot('myDiv', data, layout);
 });

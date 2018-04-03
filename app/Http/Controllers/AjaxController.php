@@ -17,26 +17,11 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
 
-class ChartController extends Controller
+class AjaxController extends Controller
 {
     public function index(){
         return view('chart');
     }
-    public function readydata(){
 
-
-        $select_stats = DB::table('csv')->get();
-
-
-        foreach($select_stats as $statics) {
-
-            //change our object to an array
-            $statics = array();
-
-        }
-
-
-        return View::make('char')->with('stats', $select_stats)/*->with('count', $get_count)*/;
-    }
 
 }

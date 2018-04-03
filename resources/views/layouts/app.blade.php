@@ -34,6 +34,7 @@
     <link href="{{URL::to('/')}}/css/style-responsive.css" rel="stylesheet" />
     <link href="{{URL::to('/')}}/css/xcharts.min.css" rel=" stylesheet">
     <link href="{{URL::to('/')}}/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
 <main class="py-4">
