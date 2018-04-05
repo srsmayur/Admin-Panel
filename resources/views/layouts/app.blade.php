@@ -10,6 +10,10 @@
     <link rel="shortcut icon" href="img/favicon.png">
 
     <title>Admin Dashboard</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="{{URL::to('/')}}/js/jquery.js"></script>
+
+    <script type="text/javascript">var baseurl = '<?php echo URL::to('/'); ?>';</script>
     <!-- Bootstrap CSS -->
     <link href="{{URL::to('/')}}/css/bootstrap.min.css" rel="stylesheet">
 
@@ -42,7 +46,7 @@
 </main>
 
 
-<script src="{{URL::to('/')}}/js/jquery.js"></script>
+
 <script src="{{URL::to('/')}}/js/jquery-ui-1.10.4.min.js"></script>
 <script src="{{URL::to('/')}}/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="{{URL::to('/')}}/js/jquery-ui-1.9.2.custom.min.js"></script>
@@ -83,6 +87,5 @@
 <script src="{{URL::to('/')}}/js/charts.js"></script>
 <script src="{{URL::to('/')}}/js/jquery.slimscroll.min.js"></script>
 <script src="{{URL::to('/')}}/assets/chart-master/Chart.js"></script>
-<script src="{{URL::to('/')}}/js/chartjs-custom.js"></script>
 </body>
 </html>

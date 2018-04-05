@@ -16,27 +16,18 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
+use MongoDB\BSON\Javascript;
 
 class ChartController extends Controller
 {
     public function index(){
         return view('chart');
     }
-    public function readydata(){
+    public function readdata(){
 
+        $csv_data = DB::table('csv')->select('MWAIT_BR_001_ACT','MWAIT_DS_001_ACT')->get();
 
-        $select_stats = DB::table('csv')->get();
-
-
-        foreach($select_stats as $statics) {
-
-            //change our object to an array
-            $statics = array();
-
-        }
-
-
-        return View::make('char')->with('stats', $select_stats)/*->with('count', $get_count)*/;
+        return Response::json(array("status" => "success", "data" =>  $csv_data));
     }
 
 }
