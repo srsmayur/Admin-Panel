@@ -31,8 +31,10 @@ class ChartController extends Controller
         return Response::json(array("status" => "success", "data" =>  $csv_data));
     }
     public function dosomething(){
-        $date_from = Input::get('date_from');
-        $date_to = Input::get('date_to');
+
+        $date_from =  $_GET['from_date'];
+        $date_to =  $_GET['to_date'];
+
 
         $from_split = explode(' ', $date_from, 2);
         $from_date = $from_split[0];
@@ -45,7 +47,7 @@ class ChartController extends Controller
         $to_time = date('H:i:s',strtotime($to_t));
 
         $current = DB::table('csv')->select('MWCT_BR_001_ACT','MWCT_BR_002_ACT')
-            ->orderBy('ID','ASC')
+            ->distinct()->orderBy('ID','ASC')
             ->whereBetween('LocalDate',array($from_date,$to_date))
             ->whereBetween('LocalTime',array($from_time,$to_time))
             ->get();

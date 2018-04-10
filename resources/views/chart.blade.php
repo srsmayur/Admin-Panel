@@ -17,7 +17,7 @@
                                         </div>
                                 </div>
                          </section>
-                    <form class="form-group" method="POST" action="<?php echo URL::to('/chart/dosomething'); ?>">
+                    <form class="form-group" id="formoid" method="POST" >
                         @csrf
                     <div class="container">
 
@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" id="submit" class="btn btn-primary">
                             {{ __('Search') }}
                         </button>
                     </div>
@@ -54,8 +54,56 @@
 
                         $(document).ready(function(){
 
+                            $("#formoid").submit(function(event) {
 
-                                var url = 'http://localhost/Admin-panel/public/chart/readdata';
+                                event.preventDefault();
+                                var $form = $(this),
+                                        from_date = $form.find('input[name="date_from"]').val(),
+                                        to_date = $form.find('input[name="date_to"]').val(),
+                                        url = $form.attr('action');
+                                        console.log(from_date);
+                                        console.log(to_date);
+
+                                var url = 'http://localhost/Admin-panel/public/chart/dosomething';
+                                $.ajax({
+
+                                    url: url,  //Server script to process data
+                                    type: 'GET',
+                                    dataType: 'json',
+                                    data: {
+                                        from_date: from_date,
+                                        to_date: to_date
+                                    },
+                                    success: function (response) {
+                                        console.log(response);
+                                        var array = response.data;
+                                        if(array.length >= 0){
+
+                                            var var1 = new Array();
+                                            var var2 = new Array();
+
+                                            for (var i = 0; i < array.length; i++) {
+
+                                                var1.push(array[i].MWCT_BR_001_ACT);
+                                                var2.push(array[i].MWCT_BR_002_ACT);
+                                            }
+                                            var trace = {
+                                                x: var1,
+                                                y: var2,
+                                                type: 'scatter'
+                                            };
+                                            var data = [trace];
+
+                                            console.log(trace);
+                                            Plotly.newPlot('myDiv', data);
+                                        }
+                                        else {
+                                            console.log("Data is null");
+                                        }
+                                    }
+                                });
+                            });
+                           /*     var url = 'http://localhost/Admin-panel/public/chart/readdata';
                                 $.ajax({
                                         url: url,  //Server script to process data
                                         type: 'GET',
@@ -91,7 +139,7 @@
                                         cache: false,
                                         contentType: false,
                                         processData: false
-                                });
+                                });*/
 
                         });
                 </script>
