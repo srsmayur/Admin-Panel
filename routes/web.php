@@ -23,6 +23,7 @@ Route::group(array('before' => 'auth'), function () {
 	Route::any('user/edit/{id}', 'UserController@update');
 	Route::any('chart', 'ChartController@index');
 	Route::any('chart/readdata', 'ChartController@readdata');
+	Route::any('/chart/dosomething', 'ChartController@dosomething');
 	
 });
 

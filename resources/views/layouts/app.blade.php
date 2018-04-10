@@ -9,16 +9,18 @@
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
     <link rel="shortcut icon" href="img/favicon.png">
 
+
     <title>Admin Dashboard</title>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="{{URL::to('/')}}/js/jquery.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 
     <script type="text/javascript">var baseurl = '<?php echo URL::to('/'); ?>';</script>
     <!-- Bootstrap CSS -->
-    <link href="{{URL::to('/')}}/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- bootstrap theme -->
-    <link href="{{URL::to('/')}}/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.css" rel="stylesheet">
     <!--external css-->
     <!-- font icon -->
     <link href="{{URL::to('/')}}/css/elegant-icons-style.css" rel="stylesheet" />
@@ -39,19 +41,36 @@
     <link href="{{URL::to('/')}}/css/xcharts.min.css" rel=" stylesheet">
     <link href="{{URL::to('/')}}/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <link href="{{URL::to('/')}}/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+
+
 </head>
 <body>
 <main class="py-4">
     @yield('content')
 </main>
 
+<script type="text/javascript" src="{{URL::to('/')}}/js/jquery-1.8.3.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="{{URL::to('/')}}/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{URL::to('/')}}/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="{{URL::to('/')}}/js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+<script type="text/javascript">
+    $('.form_datetime').datetimepicker({
+        //language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        showMeridian: 1
+    });
+   </script>
 
-
-<script src="{{URL::to('/')}}/js/jquery-ui-1.10.4.min.js"></script>
-<script src="{{URL::to('/')}}/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="{{URL::to('/')}}/js/jquery-ui-1.9.2.custom.min.js"></script>
 <!-- bootstrap -->
-<script src="{{URL::to('/')}}/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- nice scroll -->
 <script src="{{URL::to('/')}}/js/jquery.scrollTo.min.js"></script>
 <script src="{{URL::to('/')}}/js/jquery.nicescroll.js" type="text/javascript"></script>
