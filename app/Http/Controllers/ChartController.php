@@ -48,7 +48,7 @@ class ChartController extends Controller
             ->orderBy('ID','ASC')
             ->whereBetween('LocalDate',array($from_date,$to_date))
             ->whereBetween('LocalTime',array($from_time,$to_time))
-            ->first();
+            ->get();
         return Response::json(array("status" => "success", "data" =>  $current));
     }
     public function dosearch(){
