@@ -59,7 +59,7 @@ class CSVImporter extends Command
 
                 while (($row = fgetcsv($handle, 1000, $delimiter)) !== false)
                 {
-                    DB::table('csv')->insert(
+                    DB::table('csv_chart')->insert(
                         array(
                             'LocalDate' => date('Y-m-d',strtotime($row[0])),
                             'LocalTime' => $row[1],
@@ -135,7 +135,7 @@ class CSVImporter extends Command
     public function handle()
     {
 
-        $file = public_path('csv/2.csv');
+        $file = public_path('csv/4.csv');
 
         $customerArr = $this->csvToArray($file);
         for ($i=0; $i<count($customerArr); $i++)

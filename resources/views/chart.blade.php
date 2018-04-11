@@ -6,6 +6,7 @@
                 @include('layouts.sidebar')
                 <section id="main-content">
                         <section class="wrapper">
+
                                 <!--overview start-->
                                 <div class="row">
                                         <div class="col-lg-12">
@@ -17,6 +18,7 @@
                                         </div>
                                 </div>
                          </section>
+
                     <form class="form-group" id="formoid" method="POST" >
                         @csrf
                     <div class="container">
@@ -46,6 +48,31 @@
                         </button>
                     </div>
                     </form>
+                    @if(Session::has('success'))
+                        <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            {{ Session::get('message', '') }}
+                        </div>
+                    @endif
+                    @if(Session::has('info'))
+                        <div class="alert alert-info">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            {{ Session::get('message', '') }}
+                        </div>
+                    @endif
+                    @if(Session::has('warning'))
+                        <div class="alert alert-warning">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            {{ Session::get('message', '') }}
+                        </div>
+                    @endif
+                    @if(Session::has('danger'))
+                        <div class="alert alert-danger">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            {{ Session::get('message', '') }}
+                        </div>
+                    @endif
+
                     <div id="myDiv"></div>
 
                 </section>
@@ -81,21 +108,61 @@
 
                                             var var1 = new Array();
                                             var var2 = new Array();
+                                            var var3 = new Array();
+                                           for (var i = 0; i < array.length; i++) {
 
-                                            for (var i = 0; i < array.length; i++) {
-
-                                                var1.push(array[i].MWCT_BR_001_ACT);
-                                                var2.push(array[i].MWCT_BR_002_ACT);
+                                                var1.push(array[i].datetime);
+                                                var2.push(array[i].MWCT_BR_001_ACT);
+                                                var3.push(array[i].MWCT_BR_002_ACT);
                                             }
-                                            var trace = {
+                                            var trace1 = {
                                                 x: var1,
                                                 y: var2,
+                                                mode: 'lines+markers',
+                                                name: 'MWCT_BR_001_ACT',
+                                                marker: {
+                                                    color: 'blue',
+                                                    size: 14,
+                                                    line: {
+                                                        color: 'white',
+                                                        width: 0.1
+                                                    }
+                                                },
                                                 type: 'scatter'
                                             };
-                                            var data = [trace];
+                                            var trace2 = {
+                                                x: var1,
+                                                y: var3,
+                                                mode: 'lines+markers',
+                                                name: 'MWCT_BR_002_ACT',
+                                                marker: {
+                                                    color: 'rgb(255, 217, 102)',
+                                                    size: 14,
+                                                    line: {
+                                                        color: 'white',
+                                                        width: 0.1
+                                                    }
+                                                },
+                                                type: 'scatter'
+                                            };
 
-                                            console.log(trace);
-                                            Plotly.newPlot('myDiv', data);
+                                            var data = [trace1,trace2];
+
+                                            var layout = {
+                                                title: 'Chart',
+                                                xaxis: {
+                                                    title: 'Date-Time',
+                                                    showgrid: false,
+                                                    zeroline: false
+                                                },
+                                                yaxis: {
+                                                    title: '',
+                                                    showline: false
+                                                }
+                                            };
+
+                                            Plotly.newPlot('myDiv', data, layout);
+
                                         }
                                         else {
                                             console.log("Data is null");

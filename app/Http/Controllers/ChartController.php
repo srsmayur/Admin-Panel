@@ -26,32 +26,39 @@ class ChartController extends Controller
     }
     public function readdata(){
 
-        $csv_data = DB::table('csv')->select('MWCT_BR_001_ACT','MWCT_BR_002_ACT')->distinct()->orderBy('ID','ASC')->get();
+        $csv_data = DB::table('csv_chart')->select('MWCT_BR_001_ACT','MWCT_BR_002_ACT')->distinct()->orderBy('ID','ASC')->get();
 
         return Response::json(array("status" => "success", "data" =>  $csv_data));
     }
     public function dosomething(){
 
-        $date_from =  $_GET['from_date'];
-        $date_to =  $_GET['to_date'];
+        if ( !empty ( $_GET['from_date'] ) &&  ( $_GET['to_date'] )) {
 
+            $date_from =  $_GET['from_date'];
+            $date_to =  $_GET['to_date'];
 
-        $from_split = explode(' ', $date_from, 2);
-        $from_date = $from_split[0];
-        $from_t = $from_split[0];
-        $from_time = date('H:i:s',strtotime($from_t));
+            $from_split = explode(' ', $date_from, 2);
+            $from_date = $from_split[0];
+            $from_t = $from_split[0];
+            $from_time = date('H:i:s',strtotime($from_t));
 
-        $to_split = explode(' ', $date_to, 2);
-        $to_date = $to_split[0];
-        $to_t = $to_split[1];
-        $to_time = date('H:i:s',strtotime($to_t));
+            $to_split = explode(' ', $date_to, 2);
+            $to_date = $to_split[0];
+            $to_t = $to_split[1];
+            $to_time = date('H:i:s',strtotime($to_t));
 
-        $current = DB::table('csv')->select('MWCT_BR_001_ACT','MWCT_BR_002_ACT')
-            ->distinct()->orderBy('ID','ASC')
-            ->whereBetween('LocalDate',array($from_date,$to_date))
-            ->whereBetween('LocalTime',array($from_time,$to_time))
-            ->get();
-        return Response::json(array("status" => "success", "data" =>  $current));
+            $current = DB::table('csv_chart')
+                //->select('MWCT_BR_002_ACT','LocalDate','LocalTime')
+                ->select('MWCT_BR_001_ACT','MWCT_BR_002_ACT',DB::raw('CONCAT(Date," ",Time) as datetime'))
+                ->orderby('datetime')
+                ->get();
+            return Response::json(array("status" => "success", "data" =>  $current));
+        }
+
+        else
+        {
+            return redirect('chart')->with('danger', true)->with('message','Please Select Some Data to create chart');
+        }
     }
     public function dosearch(){
 
