@@ -121,35 +121,27 @@
                                                 mode: 'lines+markers',
                                                 name: 'MWCT_BR_001_ACT',
                                                 marker: {
-                                                    color: 'blue',
-                                                    size: 14,
-                                                    line: {
-                                                        color: 'white',
-                                                        width: 0.1
-                                                    }
+                                                    color: 'rgb(128, 0, 128)',
+                                                    size: 8
                                                 },
-                                                type: 'scatter'
+                                                line: {
+                                                    color: 'rgb(128, 0, 128)',
+                                                    width: 1
+                                                }
                                             };
                                             var trace2 = {
                                                 x: var1,
                                                 y: var3,
                                                 mode: 'lines+markers',
-                                                name: 'MWCT_BR_002_ACT',
-                                                marker: {
-                                                    color: 'rgb(255, 217, 102)',
-                                                    size: 14,
-                                                    line: {
-                                                        color: 'white',
-                                                        width: 0.1
-                                                    }
-                                                },
-                                                type: 'scatter'
+                                                name: 'MWCT_BR_002_ACT'
                                             };
 
                                             var data = [trace1,trace2];
 
                                             var layout = {
                                                 title: 'Chart',
+                                                width: '1400',
+                                                height: '700',
                                                 xaxis: {
                                                     title: 'Date-Time',
                                                     showgrid: false,

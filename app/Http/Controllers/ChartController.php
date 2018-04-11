@@ -37,19 +37,21 @@ class ChartController extends Controller
             $date_from =  $_GET['from_date'];
             $date_to =  $_GET['to_date'];
 
-            $from_split = explode(' ', $date_from, 2);
-            $from_date = $from_split[0];
-            $from_t = $from_split[0];
-            $from_time = date('H:i:s',strtotime($from_t));
+           // $from_split = explode(' ', $date_from, 2);
+           // $from_date = $from_split[0];
+           // $from_t = $from_split[0];
+            $from_date = date('Y-m-d H:i:s',strtotime($date_from));
 
-            $to_split = explode(' ', $date_to, 2);
-            $to_date = $to_split[0];
-            $to_t = $to_split[1];
-            $to_time = date('H:i:s',strtotime($to_t));
+            //$to_split = explode(' ', $date_to, 2);
+            //$to_date = $to_split[0];
+            //$to_t = $to_split[1];
+            $to_date = date('Y-m-d H:i:s',strtotime($date_to));
+
+
 
             $current = DB::table('csv_chart')
-                //->select('MWCT_BR_002_ACT','LocalDate','LocalTime')
                 ->select('MWCT_BR_001_ACT','MWCT_BR_002_ACT',DB::raw('CONCAT(Date," ",Time) as datetime'))
+                ->whereBetween(DB::raw('CONCAT(Date," ",Time)'),array($from_date,$to_date))
                 ->orderby('datetime')
                 ->get();
             return Response::json(array("status" => "success", "data" =>  $current));
@@ -60,21 +62,5 @@ class ChartController extends Controller
             return redirect('chart')->with('danger', true)->with('message','Please Select Some Data to create chart');
         }
     }
-    public function dosearch(){
 
-        $fromDate = date('Y-m-d' . '00:00', time());
-        $toDate = date('Y-m-d' . ' 22:00', time());
-
-        $date_from = Input::get('date_from');
-        echo $date_from;
-
-        $date_to = '2016-11-25';
-
-       // $from = date($date_from);
-        //$to = date($date_to);
-
-
-        //$current = DB::table('csv')->select('MWCT_BR_001_ACT','MWCT_BR_002_ACT')->distinct()->orderBy('ID','ASC')->whereBetween('LocalDate',array($from,$to))->first();
-        //return Response::json(array("status" => "success", "data" =>  $current));
-    }
 }
