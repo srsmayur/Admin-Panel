@@ -20,7 +20,7 @@
                          </section>
 
                     <form class="form-group" id="formoid" method="POST" >
-                        @csrf
+                    @csrf
                     <div class="container">
 
                         <div class='col-md-8'>
@@ -88,10 +88,8 @@
                                         from_date = $form.find('input[name="date_from"]').val(),
                                         to_date = $form.find('input[name="date_to"]').val(),
                                         url = $form.attr('action');
-                                        console.log(from_date);
-                                        console.log(to_date);
 
-                                var url = 'http://localhost/Admin-panel/public/chart/dosomething';
+                                var url = 'http://localhost/Admin-panel/public/chart/readdata';
                                 $.ajax({
 
                                     url: url,  //Server script to process data
@@ -102,6 +100,7 @@
                                         to_date: to_date
                                     },
                                     success: function (response) {
+
                                         console.log(response);
                                         var array = response.data;
                                         if(array.length >= 0){
@@ -140,8 +139,6 @@
 
                                             var layout = {
                                                 title: 'Chart',
-                                                width: '1400',
-                                                height: '700',
                                                 xaxis: {
                                                     title: 'Date-Time',
                                                     showgrid: false,

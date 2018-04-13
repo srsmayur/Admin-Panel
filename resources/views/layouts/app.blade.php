@@ -43,13 +43,26 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
     <link href="{{URL::to('/')}}/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <!-- Styles -->
+    <style>
+        #chartdiv {
+            width	: 100%;
+            height	: 500px;
+        }
+    </style>
 
-
-</head>
+    <!-- Resources -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+        </head>
 <body>
 <main class="py-4">
     @yield('content')
 </main>
+
 
 <script type="text/javascript" src="{{URL::to('/')}}/js/jquery-1.8.3.min.js" charset="UTF-8"></script>
 <script type="text/javascript" src="{{URL::to('/')}}/bootstrap/js/bootstrap.min.js"></script>

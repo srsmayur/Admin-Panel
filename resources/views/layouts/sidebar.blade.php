@@ -38,7 +38,7 @@
                 </a>
             </li>
             <li>
-                <a class="" href="{{URL::to('chart')}}">
+                <a class="" href="{{URL::to('charts')}}">
                     <i class="icon_piechart"></i>
                     <span>Charts</span>
 
