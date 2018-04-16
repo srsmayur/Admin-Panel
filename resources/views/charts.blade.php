@@ -48,6 +48,19 @@
                 </div>
             </form>
             <div id="chartdiv"></div>
+            <div class="row">
+                <div class="col-sm-4" id="MWCT_BR_001_ACT"></div>
+                <div class="col-sm-4" id="MWCT_BR_002_ACT"></div>
+                <div class="col-sm-4" id="MWCT_BR_003_ACT"></div>
+                <div class="col-sm-4" id="MWCT_PR_001_ACT"></div>
+                <div class="col-sm-4" id="MWCT_DS_001_ACT"></div>
+                <div class="col-sm-4" id="MWCT_DS_002_ACT"></div>
+                <div class="col-sm-4" id="MWCT_DS_003_ACT"></div>
+                <div class="col-sm-4" id="MWCT_DS_004_ACT"></div>
+                <div class="col-sm-4" id="MWCT_DS_005_ACT"></div>
+                <div class="col-sm-4" id="MWCT_DS_006_ACT"></div>
+            </div>
+
         </section>
         <!-- Chart code -->
         <script>
@@ -85,26 +98,53 @@
                                     "id": "g1",
                                     "fillAlphas": 0.4,
                                     "valueField": "MWCT_BR_001_ACT",
-                                    "balloonText": "<div style='margin:5px; font-size:19px;'>MWCT_BR_001_ACT:<b>[[value]]</b></div>"
+                                    "balloonText": "<div style='margin:1px; font-size:10px;'>MWCT_BR_001_ACT:<b>[[value]]</b></div>"
                                 },{
                                     "id": "g2",
                                     "fillAlphas": 0.4,
                                     "valueField": "MWCT_BR_002_ACT",
-                                    "balloonText": "<div style='margin:5px; font-size:19px;'>MWCT_BR_002_ACT:<b>[[value]]</b></div>"
+                                    "balloonText": "<div style='margin:1px; font-size:10px;'>MWCT_BR_002_ACT:<b>[[value]]</b></div>"
+                                },{
+                                    "id": "g3",
+                                    "fillAlphas": 0.4,
+                                    "valueField": "MWCT_BR_003_ACT",
+                                    "balloonText": "<div style='margin:1px; font-size:10px;'>MWCT_BR_003_ACT:<b>[[value]]</b></div>"
+                                },{
+                                    "id": "g4",
+                                    "fillAlphas": 0.4,
+                                    "valueField": "MWCT_PR_001_ACT",
+                                    "balloonText": "<div style='margin:1px; font-size:10px;'>MWCT_PR_001_ACT:<b>[[value]]</b></div>"
+                                },{
+                                    "id": "g5",
+                                    "fillAlphas": 0.4,
+                                    "valueField": "MWCT_DS_001_ACT",
+                                    "balloonText": "<div style='margin:1px; font-size:10px;'>MWCT_DS_001_ACT:<b>[[value]]</b></div>"
+                                },{
+                                    "id": "g6",
+                                    "fillAlphas": 0.4,
+                                    "valueField": "MWCT_DS_002_ACT",
+                                    "balloonText": "<div style='margin:1px; font-size:10px;'>MWCT_DS_002_ACT:<b>[[value]]</b></div>"
+                                },{
+                                    "id": "g7",
+                                    "fillAlphas": 0.4,
+                                    "valueField": "MWCT_DS_003_ACT",
+                                    "balloonText": "<div style='margin:1px; font-size:10px;'>MWCT_DS_003_ACT:<b>[[value]]</b></div>"
+                                },{
+                                    "id": "g8",
+                                    "fillAlphas": 0.4,
+                                    "valueField": "MWCT_DS_004_ACT",
+                                    "balloonText": "<div style='margin:1px; font-size:10px;'>MWCT_DS_004_ACT:<b>[[value]]</b></div>"
+                                },{
+                                    "id": "g9",
+                                    "fillAlphas": 0.4,
+                                    "valueField": "MWCT_DS_005_ACT",
+                                    "balloonText": "<div style='margin:1px; font-size:10px;'>MWCT_DS_005_ACT:<b>[[value]]</b></div>"
+                                },{
+                                    "id": "g10",
+                                    "fillAlphas": 0.4,
+                                    "valueField": "MWCT_DS_006_ACT",
+                                    "balloonText": "<div style='margin:1px; font-size:10px;'>MWCT_DS_006_ACT:<b>[[value]]</b></div>"
                                 }],
-                                "chartScrollbar": {
-                                    "graph": "g1",
-                                    "scrollbarHeight": 80,
-                                    "backgroundAlpha": 0,
-                                    "selectedBackgroundAlpha": 0.1,
-                                    "selectedBackgroundColor": "#888888",
-                                    "graphFillAlpha": 0,
-                                    "graphLineAlpha": 0.5,
-                                    "selectedGraphFillAlpha": 0,
-                                    "selectedGraphLineAlpha": 1,
-                                    "autoGridCount": true,
-                                    "color": "#AAAAAA"
-                                },
                                 "chartCursor": {
                                     "categoryBalloonDateFormat": "JJ:NN, DD MMMM",
                                     "cursorPosition": "mouse"
@@ -117,11 +157,461 @@
                                 },
                                 "export": {
                                     "enabled": true,
-                                    "dateFormat": "YYYY-MM-DD HH:NN:SS"
+
+                                }
+                            });
+                            chart.addListener("dataUpdated", zoomChart);
+            //Chart -1
+                            var chart1 = AmCharts.makeChart("MWCT_BR_001_ACT", {
+                                "type": "serial",
+                                "theme": "light",
+                                "marginRight": 80,
+                                "autoMarginOffset": 20,
+                                "marginTop": 7,
+                                "dataProvider": chartdata,
+                                "valueAxes": [{
+                                    "axisAlpha": 0.2,
+                                    "dashLength": 1,
+                                    "position": "left"
+                                }],
+                                "mouseWheelZoomEnabled": true,
+                                "graphs": [{
+                                    "id": "g1",
+                                    "balloonText": "[[value]]",
+                                    "bullet": "round",
+                                    "bulletBorderAlpha": 1,
+                                    "bulletColor": "#FFFFFF",
+                                    "hideBulletsCount": 50,
+                                    "title": "red line",
+                                    "valueField": "MWCT_BR_001_ACT",
+                                    "useLineColorForBulletBorder": true,
+                                    "balloon":{
+                                        "drop":true
+                                    }
+                                }],
+                                "chartCursor": {
+                                    "categoryBalloonDateFormat": "JJ:NN, DD MMMM",
+                                    "cursorPosition": "mouse"
+                                },
+                                "categoryField": "datetime",
+                                "categoryAxis": {
+                                    "minPeriod": "mm",
+                                    "title": "MWCT_BR_001_ACT",
+                                    "parseDates": true
+                                },
+                                "export": {
+                                    "enabled": true,
+
                                 }
                             });
 
-                            chart.addListener("dataUpdated", zoomChart);
+                            chart1.addListener("rendered", zoomChart);
+            //Chart -2
+                            var chart2 = AmCharts.makeChart("MWCT_BR_002_ACT", {
+                                "type": "serial",
+                                "theme": "light",
+                                "marginRight": 80,
+                                "autoMarginOffset": 20,
+                                "marginTop": 7,
+                                "dataProvider": chartdata,
+                                "valueAxes": [{
+                                    "axisAlpha": 0.2,
+                                    "dashLength": 1,
+                                    "position": "left"
+                                }],
+                                "mouseWheelZoomEnabled": true,
+                                "graphs": [{
+                                    "id": "g1",
+                                    "balloonText": "[[value]]",
+                                    "bullet": "round",
+                                    "bulletBorderAlpha": 1,
+                                    "bulletColor": "#FFFFFF",
+                                    "hideBulletsCount": 50,
+                                    "title": "red line",
+                                    "valueField": "MWCT_BR_002_ACT",
+                                    "useLineColorForBulletBorder": true,
+                                    "balloon":{
+                                        "drop":true
+                                    }
+                                }],
+                                "chartCursor": {
+                                    "categoryBalloonDateFormat": "JJ:NN, DD MMMM",
+                                    "cursorPosition": "mouse"
+                                },
+                                "categoryField": "datetime",
+                                "categoryAxis": {
+                                    "minPeriod": "mm",
+                                    "title": "MWCT_BR_002_ACT",
+                                    "parseDates": true
+                                },
+                                "export": {
+                                    "enabled": true,
+
+                                }
+                            });
+
+                            chart2.addListener("rendered", zoomChart);
+            //Chart -3
+                            var chart3 = AmCharts.makeChart("MWCT_BR_003_ACT", {
+                                "type": "serial",
+                                "theme": "light",
+                                "marginRight": 80,
+                                "autoMarginOffset": 20,
+                                "marginTop": 7,
+                                "dataProvider": chartdata,
+                                "valueAxes": [{
+                                    "axisAlpha": 0.2,
+                                    "dashLength": 1,
+                                    "position": "left"
+                                }],
+                                "mouseWheelZoomEnabled": true,
+                                "graphs": [{
+                                    "id": "g1",
+                                    "balloonText": "[[value]]",
+                                    "bullet": "round",
+                                    "bulletBorderAlpha": 1,
+                                    "bulletColor": "#FFFFFF",
+                                    "hideBulletsCount": 50,
+                                    "title": "red line",
+                                    "valueField": "MWCT_BR_003_ACT",
+                                    "useLineColorForBulletBorder": true,
+                                    "balloon":{
+                                        "drop":true
+                                    }
+                                }],
+                                "chartCursor": {
+                                    "categoryBalloonDateFormat": "JJ:NN, DD MMMM",
+                                    "cursorPosition": "mouse"
+                                },
+                                "categoryField": "datetime",
+                                "categoryAxis": {
+                                    "minPeriod": "mm",
+                                    "title": "MWCT_BR_003_ACT",
+                                    "parseDates": true
+                                },
+                                "export": {
+                                    "enabled": true,
+
+                                }
+                            });
+
+                            chart3.addListener("rendered", zoomChart);
+            //Chart -4
+                            var chart4 = AmCharts.makeChart("MWCT_PR_001_ACT", {
+                                "type": "serial",
+                                "theme": "light",
+                                "marginRight": 80,
+                                "autoMarginOffset": 20,
+                                "marginTop": 7,
+                                "dataProvider": chartdata,
+                                "valueAxes": [{
+                                    "axisAlpha": 0.2,
+                                    "dashLength": 1,
+                                    "position": "left"
+                                }],
+                                "mouseWheelZoomEnabled": true,
+                                "graphs": [{
+                                    "id": "g1",
+                                    "balloonText": "[[value]]",
+                                    "bullet": "round",
+                                    "bulletBorderAlpha": 1,
+                                    "bulletColor": "#FFFFFF",
+                                    "hideBulletsCount": 50,
+                                    "title": "red line",
+                                    "valueField": "MWCT_PR_001_ACT",
+                                    "useLineColorForBulletBorder": true,
+                                    "balloon":{
+                                        "drop":true
+                                    }
+                                }],
+                                "chartCursor": {
+                                    "categoryBalloonDateFormat": "JJ:NN, DD MMMM",
+                                    "cursorPosition": "mouse"
+                                },
+                                "categoryField": "datetime",
+                                "categoryAxis": {
+                                    "minPeriod": "mm",
+                                    "title": "MWCT_PR_001_ACT",
+                                    "parseDates": true
+                                },
+                                "export": {
+                                    "enabled": true,
+
+                                }
+                            });
+
+                            chart4.addListener("rendered", zoomChart);
+            //Chart -5
+                            var chart5 = AmCharts.makeChart("MWCT_DS_001_ACT", {
+                                "type": "serial",
+                                "theme": "light",
+                                "marginRight": 80,
+                                "autoMarginOffset": 20,
+                                "marginTop": 7,
+                                "dataProvider": chartdata,
+                                "valueAxes": [{
+                                    "axisAlpha": 0.2,
+                                    "dashLength": 1,
+                                    "position": "left"
+                                }],
+                                "mouseWheelZoomEnabled": true,
+                                "graphs": [{
+                                    "id": "g1",
+                                    "balloonText": "[[value]]",
+                                    "bullet": "round",
+                                    "bulletBorderAlpha": 1,
+                                    "bulletColor": "#FFFFFF",
+                                    "hideBulletsCount": 50,
+                                    "title": "red line",
+                                    "valueField": "MWCT_DS_001_ACT",
+                                    "useLineColorForBulletBorder": true,
+                                    "balloon":{
+                                        "drop":true
+                                    }
+                                }],
+                                "chartCursor": {
+                                    "categoryBalloonDateFormat": "JJ:NN, DD MMMM",
+                                    "cursorPosition": "mouse"
+                                },
+                                "categoryField": "datetime",
+                                "categoryAxis": {
+                                    "minPeriod": "mm",
+                                    "title": "MWCT_DS_001_ACT",
+                                    "parseDates": true
+                                },
+                                "export": {
+                                    "enabled": true,
+
+                                }
+                            });
+
+                            chart5.addListener("rendered", zoomChart);
+            //Chart -6
+                            var chart6 = AmCharts.makeChart("MWCT_DS_002_ACT", {
+                                "type": "serial",
+                                "theme": "light",
+                                "marginRight": 80,
+                                "autoMarginOffset": 20,
+                                "marginTop": 7,
+                                "dataProvider": chartdata,
+                                "valueAxes": [{
+                                    "axisAlpha": 0.2,
+                                    "dashLength": 1,
+                                    "position": "left"
+                                }],
+                                "mouseWheelZoomEnabled": true,
+                                "graphs": [{
+                                    "id": "g1",
+                                    "balloonText": "[[value]]",
+                                    "bullet": "round",
+                                    "bulletBorderAlpha": 1,
+                                    "bulletColor": "#FFFFFF",
+                                    "hideBulletsCount": 50,
+                                    "title": "red line",
+                                    "valueField": "MWCT_DS_002_ACT",
+                                    "useLineColorForBulletBorder": true,
+                                    "balloon":{
+                                        "drop":true
+                                    }
+                                }],
+                                "chartCursor": {
+                                    "categoryBalloonDateFormat": "JJ:NN, DD MMMM",
+                                    "cursorPosition": "mouse"
+                                },
+                                "categoryField": "datetime",
+                                "categoryAxis": {
+                                    "minPeriod": "mm",
+                                    "title": "MWCT_DS_002_ACT",
+                                    "parseDates": true
+                                },
+                                "export": {
+                                    "enabled": true,
+
+                                }
+                            });
+
+                            chart6.addListener("rendered", zoomChart);
+            //Chart -7
+                            var chart7 = AmCharts.makeChart("MWCT_DS_003_ACT", {
+                                "type": "serial",
+                                "theme": "light",
+                                "marginRight": 80,
+                                "autoMarginOffset": 20,
+                                "marginTop": 7,
+                                "dataProvider": chartdata,
+                                "valueAxes": [{
+                                    "axisAlpha": 0.2,
+                                    "dashLength": 1,
+                                    "position": "left"
+                                }],
+                                "mouseWheelZoomEnabled": true,
+                                "graphs": [{
+                                    "id": "g1",
+                                    "balloonText": "[[value]]",
+                                    "bullet": "round",
+                                    "bulletBorderAlpha": 1,
+                                    "bulletColor": "#FFFFFF",
+                                    "hideBulletsCount": 50,
+                                    "title": "red line",
+                                    "valueField": "MWCT_DS_003_ACT",
+                                    "useLineColorForBulletBorder": true,
+                                    "balloon":{
+                                        "drop":true
+                                    }
+                                }],
+                                "chartCursor": {
+                                    "categoryBalloonDateFormat": "JJ:NN, DD MMMM",
+                                    "cursorPosition": "mouse"
+                                },
+                                "categoryField": "datetime",
+                                "categoryAxis": {
+                                    "minPeriod": "mm",
+                                    "title": "MWCT_DS_003_ACT",
+                                    "parseDates": true
+                                },
+                                "export": {
+                                    "enabled": true,
+
+                                }
+                            });
+
+                            chart7.addListener("rendered", zoomChart);
+            //Chart -8
+                            var chart8 = AmCharts.makeChart("MWCT_DS_004_ACT", {
+                                "type": "serial",
+                                "theme": "light",
+                                "marginRight": 80,
+                                "autoMarginOffset": 20,
+                                "marginTop": 7,
+                                "dataProvider": chartdata,
+                                "valueAxes": [{
+                                    "axisAlpha": 0.2,
+                                    "dashLength": 1,
+                                    "position": "left"
+                                }],
+                                "mouseWheelZoomEnabled": true,
+                                "graphs": [{
+                                    "id": "g1",
+                                    "balloonText": "[[value]]",
+                                    "bullet": "round",
+                                    "bulletBorderAlpha": 1,
+                                    "bulletColor": "#FFFFFF",
+                                    "hideBulletsCount": 50,
+                                    "title": "red line",
+                                    "valueField": "MWCT_DS_004_ACT",
+                                    "useLineColorForBulletBorder": true,
+                                    "balloon":{
+                                        "drop":true
+                                    }
+                                }],
+                                "chartCursor": {
+                                    "categoryBalloonDateFormat": "JJ:NN, DD MMMM",
+                                    "cursorPosition": "mouse"
+                                },
+                                "categoryField": "datetime",
+                                "categoryAxis": {
+                                    "minPeriod": "mm",
+                                    "title": "MWCT_DS_004_ACT",
+                                    "parseDates": true
+                                },
+                                "export": {
+                                    "enabled": true,
+
+                                }
+                            });
+
+                            chart8.addListener("rendered", zoomChart);
+            //Chart -9
+                            var chart9 = AmCharts.makeChart("MWCT_DS_005_ACT", {
+                                "type": "serial",
+                                "theme": "light",
+                                "marginRight": 80,
+                                "autoMarginOffset": 20,
+                                "marginTop": 7,
+                                "dataProvider": chartdata,
+                                "valueAxes": [{
+                                    "axisAlpha": 0.2,
+                                    "dashLength": 1,
+                                    "position": "left"
+                                }],
+                                "mouseWheelZoomEnabled": true,
+                                "graphs": [{
+                                    "id": "g1",
+                                    "balloonText": "[[value]]",
+                                    "bullet": "round",
+                                    "bulletBorderAlpha": 1,
+                                    "bulletColor": "#FFFFFF",
+                                    "hideBulletsCount": 50,
+                                    "title": "red line",
+                                    "valueField": "MWCT_DS_005_ACT",
+                                    "useLineColorForBulletBorder": true,
+                                    "balloon":{
+                                        "drop":true
+                                    }
+                                }],
+                                "chartCursor": {
+                                    "categoryBalloonDateFormat": "JJ:NN, DD MMMM",
+                                    "cursorPosition": "mouse"
+                                },
+                                "categoryField": "datetime",
+                                "categoryAxis": {
+                                    "minPeriod": "mm",
+                                    "title": "MWCT_DS_005_ACT",
+                                    "parseDates": true
+                                },
+                                "export": {
+                                    "enabled": true,
+
+                                }
+                            });
+
+                            chart9.addListener("rendered", zoomChart);
+            //Chart -10
+                            var chart10 = AmCharts.makeChart("MWCT_DS_006_ACT", {
+                                "type": "serial",
+                                "theme": "light",
+                                "marginRight": 80,
+                                "autoMarginOffset": 20,
+                                "marginTop": 7,
+                                "dataProvider": chartdata,
+                                "valueAxes": [{
+                                    "axisAlpha": 0.2,
+                                    "dashLength": 1,
+                                    "position": "left"
+                                }],
+                                "mouseWheelZoomEnabled": true,
+                                "graphs": [{
+                                    "id": "g1",
+                                    "balloonText": "[[value]]",
+                                    "bullet": "round",
+                                    "bulletBorderAlpha": 1,
+                                    "bulletColor": "#FFFFFF",
+                                    "hideBulletsCount": 50,
+                                    "title": "red line",
+                                    "valueField": "MWCT_DS_006_ACT",
+                                    "useLineColorForBulletBorder": true,
+                                    "balloon":{
+                                        "drop":true
+                                    }
+                                }],
+                                "chartCursor": {
+                                    "categoryBalloonDateFormat": "JJ:NN, DD MMMM",
+                                    "cursorPosition": "mouse"
+                                },
+                                "categoryField": "datetime",
+                                "categoryAxis": {
+                                    "minPeriod": "mm",
+                                    "title": "MWCT_DS_006_ACT",
+                                    "parseDates": true
+                                },
+                                "export": {
+                                    "enabled": true,
+
+                                }
+                            });
+
+                            chart10.addListener("rendered", zoomChart);
+
                             zoomChart();
                             function zoomChart() {
                                 chart.zoomToIndexes(chartData.length - 250, chartData.length - 100);

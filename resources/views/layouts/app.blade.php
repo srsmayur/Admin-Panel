@@ -47,7 +47,67 @@
     <style>
         #chartdiv {
             width	: 100%;
-            height	: 500px;
+            height	: 350px;
+        }
+    </style>
+    <style>
+        #MWCT_BR_001_ACT {
+            width	: 30%;
+            height	: 200px;
+        }
+    </style>
+    <style>
+        #MWCT_BR_002_ACT {
+            width	: 30%;
+            height	: 200px;
+        }
+    </style>
+    <style>
+        #MWCT_BR_003_ACT {
+            width	: 30%;
+            height	: 200px;
+        }
+    </style>
+    <style>
+        #MWCT_PR_001_ACT {
+            width	: 30%;
+            height	: 200px;
+        }
+    </style>
+    <style>
+        #MWCT_DS_001_ACT {
+            width	: 30%;
+            height	: 200px;
+        }
+    </style>
+    <style>
+        #MWCT_DS_002_ACT {
+            width	: 30%;
+            height	: 200px;
+        }
+    </style>
+    <style>
+        #MWCT_DS_003_ACT {
+            width	: 30%;
+            height	: 200px;
+        }
+    </style>
+    <style>
+        #MWCT_DS_004_ACT {
+            width	: 30%;
+            height	: 200px;
+        }
+    </style>
+    <style>
+        #MWCT_DS_005_ACT {
+            width	: 30%;
+            height	: 200px;
+        }
+    </style>
+    <style>
+        #MWCT_DS_006_ACT {
+            width	: 30%;
+            height	: 200px;
         }
     </style>
 
@@ -57,7 +117,7 @@
     <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
     <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-        </head>
+    </head>
 <body>
 <main class="py-4">
     @yield('content')

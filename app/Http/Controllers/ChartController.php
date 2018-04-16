@@ -34,7 +34,7 @@ class ChartController extends Controller
             $to_date = date('Y-m-d H:i:s',strtotime($date_to));
 
             $current = DB::table('csv_chart')
-                ->select('MWCT_BR_001_ACT','MWCT_BR_002_ACT',DB::raw('CONCAT(Date," ",Time) as datetime'))
+                ->select('MWCT_BR_001_ACT','MWCT_BR_002_ACT','MWCT_BR_003_ACT','MWCT_PR_001_ACT','MWCT_DS_001_ACT','MWCT_DS_002_ACT','MWCT_DS_003_ACT','MWCT_DS_004_ACT','MWCT_DS_005_ACT','MWCT_DS_006_ACT',DB::raw('CONCAT(Date," ",Time) as datetime'))
                 ->whereBetween(DB::raw('CONCAT(Date," ",Time)'),array($from_date,$to_date))
                 ->orderby('datetime')
                 ->get();
