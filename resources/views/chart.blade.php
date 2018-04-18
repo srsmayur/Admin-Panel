@@ -159,43 +159,6 @@
                                     }
                                 });
                             });
-                           /*     var url = 'http://localhost/Admin-panel/public/chart/readdata';
-                                $.ajax({
-                                        url: url,  //Server script to process data
-                                        type: 'GET',
-                                        dataType: 'json',
-                                        success: function (response) {
-
-                                            var array = response.data;
-                                            if(array.length >= 0){
-
-                                                var var1 = new Array();
-                                                var var2 = new Array();
-
-                                                for (var i = 0; i < array.length; i++) {
-
-                                                    var1.push(array[i].MWCT_BR_001_ACT);
-                                                    var2.push(array[i].MWCT_BR_002_ACT);
-                                                }
-                                                var trace = {
-                                                    x: var1,
-                                                    y: var2,
-                                                    type: 'scatter'
-                                                };
-                                                var data = [trace];
-
-                                                console.log(trace);
-                                                Plotly.newPlot('myDiv', data);
-                                            }
-                                           else {
-                                                console.log("Data is null");
-                                            }
-                                        },
-                                        //Options to tell jQuery not to process data or worry about content-type.
-                                        cache: false,
-                                        contentType: false,
-                                        processData: false
-                                });*/
 
                         });
                 </script>

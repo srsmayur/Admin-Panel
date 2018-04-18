@@ -1,6 +1,60 @@
 @extends('layouts.app')
 
 @section('content')
+
+    <div class="container">
+    <div id="dummyModal" role="dialog" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" data-dismiss="modal" class="close">&times;</button>
+                    <h4 class="modal-title">Comment Box</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="<?php echo URL::to('comment_box'); ?>">
+                        @csrf
+                        <div class="row bottom-buffer left-buffer right-buffer">
+                            <label for="formItem">Chart</label>
+                            <img src="chart.jpg" id="img1" width="100%" height="200">
+                        </div>
+                        <div class="row bottom-buffer left-buffer right-buffer">
+                            <div class="form-group">
+
+                                <label for="inputlg">Title</label>
+                                <input class="form-control input-lg" id="title" type="text">
+
+                                <label for="cate">Category </label>
+                                <select class="form-control" id="cate">
+                                    <option>Good</option>
+                                    <option>Bad</option>
+                                    <option>Average</option>
+                                </select>
+
+                                <label for="inputlg">Comment</label>
+                                <textarea class="form-control" rows="5" id="comment"></textarea>
+                                <label for="inputlg">Duration</label>
+                                <input class="form-control input-lg" id="duration" type="text">
+
+                        </div>
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('Submit') }}
+                            </button>
+                            <button type="button" data-dismiss="modal" class="btn btn-danger">
+                                {{ __('Close') }}
+                            </button>
+
+                        </div>
+
+                    </form>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
     <section id="container" class="">
         @include('layouts.header')
         @include('layouts.sidebar')
@@ -61,12 +115,27 @@
                 <div class="col-sm-4" id="MWCT_DS_006_ACT"></div>
             </div>
 
+
+
+
         </section>
         <!-- Chart code -->
         <script>
-            $(document).ready(function(){
 
-                $("#formoid").submit(function(event) {
+
+            $(document).ready(function(){
+                AmCharts.exportCFG.menu[0].menu.push({
+                    "label" : "My action",
+                    "click" : function () {
+                    this.capture( {}, function() {
+                        this.toJPG( {}, function( imgdata ) {
+                            document.getElementById('img1').src = imgdata;
+                            $('#dummyModal').modal('show');
+                        } );
+                    } );
+                    }
+                });
+            $("#formoid").submit(function(event) {
                     event.preventDefault();
                     var $form = $(this),
                             from_date = $form.find('input[name="date_from"]').val(),
@@ -85,6 +154,8 @@
                         success: function (response) {
                             var chartdata = response.data;
 
+
+
                             var chart = AmCharts.makeChart("chartdiv", {
                                 "type": "serial",
                                 "theme": "light",
@@ -97,6 +168,7 @@
                                 "graphs": [{
                                     "id": "g1",
                                     "fillAlphas": 0.4,
+                                    "title": "MWCT_BR_001_ACT",
                                     "valueField": "MWCT_BR_001_ACT",
                                     "balloonText": "<div style='margin:1px; font-size:10px;'>MWCT_BR_001_ACT:<b>[[value]]</b></div>"
                                 },{
@@ -155,12 +227,11 @@
                                     "title": "Date & Time",
                                     "parseDates": true
                                 },
-                                "export": {
-                                    "enabled": true,
-
-                                }
+                                "export": AmCharts.exportCFG
                             });
                             chart.addListener("dataUpdated", zoomChart);
+
+
             //Chart -1
                             var chart1 = AmCharts.makeChart("MWCT_BR_001_ACT", {
                                 "type": "serial",
@@ -174,7 +245,7 @@
                                     "dashLength": 1,
                                     "position": "left"
                                 }],
-                                "mouseWheelZoomEnabled": true,
+                                "mouseWheelZoomEnabled": false,
                                 "graphs": [{
                                     "id": "g1",
                                     "balloonText": "[[value]]",
@@ -614,8 +685,10 @@
 
                             zoomChart();
                             function zoomChart() {
-                                chart.zoomToIndexes(chartData.length - 250, chartData.length - 100);
+                                chart.zoomToIndexes(chartdata.length - 250, chartdata.length - 100);
+
                             }
+
                         }
                     });
                 });

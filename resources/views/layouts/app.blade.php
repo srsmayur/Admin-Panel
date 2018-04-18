@@ -12,6 +12,7 @@
 
     <title>Admin Dashboard</title>
 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 
     <script type="text/javascript">var baseurl = '<?php echo URL::to('/'); ?>';</script>
@@ -29,7 +30,7 @@
     <link href="{{URL::to('/')}}/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
     <link href="{{URL::to('/')}}/assets/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" />
     <!-- easy pie chart-->
-    <link href="{{URL::to('/')}}/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen" />
+
     <!-- owl carousel -->
     <link rel="stylesheet" href="{{URL::to('/')}}/css/owl.carousel.css" type="text/css">
     <link href="{{URL::to('/')}}/css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
@@ -40,7 +41,7 @@
     <link href="{{URL::to('/')}}/css/style-responsive.css" rel="stylesheet" />
     <link href="{{URL::to('/')}}/css/xcharts.min.css" rel=" stylesheet">
     <link href="{{URL::to('/')}}/css/jquery-ui-1.10.4.min.css" rel="stylesheet">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script stype="text/javascript" rc="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
     <link href="{{URL::to('/')}}/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
     <!-- Styles -->
@@ -49,65 +50,54 @@
             width	: 100%;
             height	: 350px;
         }
-    </style>
-    <style>
         #MWCT_BR_001_ACT {
             width	: 30%;
             height	: 200px;
         }
-    </style>
-    <style>
         #MWCT_BR_002_ACT {
             width	: 30%;
             height	: 200px;
         }
-    </style>
-    <style>
         #MWCT_BR_003_ACT {
             width	: 30%;
             height	: 200px;
         }
-    </style>
-    <style>
         #MWCT_PR_001_ACT {
             width	: 30%;
             height	: 200px;
         }
-    </style>
-    <style>
         #MWCT_DS_001_ACT {
             width	: 30%;
             height	: 200px;
         }
-    </style>
-    <style>
         #MWCT_DS_002_ACT {
             width	: 30%;
             height	: 200px;
         }
-    </style>
-    <style>
         #MWCT_DS_003_ACT {
             width	: 30%;
             height	: 200px;
         }
-    </style>
-    <style>
         #MWCT_DS_004_ACT {
             width	: 30%;
             height	: 200px;
         }
-    </style>
-    <style>
         #MWCT_DS_005_ACT {
             width	: 30%;
             height	: 200px;
         }
-    </style>
-    <style>
         #MWCT_DS_006_ACT {
             width	: 30%;
             height	: 200px;
+        }
+        .bottom-buffer { margin-bottom:20px; }
+        .left-buffer { margin-left:10px; }
+        .right-buffer { margin-right:10px; }
+        .formItem label {
+            display: block;
+            text-align: center;
+            line-height: 150%;
+            font-size: .85em;
         }
     </style>
 
@@ -115,6 +105,7 @@
     <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
     <script src="https://www.amcharts.com/lib/3/serial.js"></script>
     <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/examples/export.config.default.js"></script>
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
     <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
     </head>
@@ -124,7 +115,7 @@
 </main>
 
 
-<script type="text/javascript" src="{{URL::to('/')}}/js/jquery-1.8.3.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="{{URL::to('/')}}/js/jquery-3.3.1.js" charset="UTF-8"></script>
 <script type="text/javascript" src="{{URL::to('/')}}/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="{{URL::to('/')}}/js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 <script type="text/javascript" src="{{URL::to('/')}}/js/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>

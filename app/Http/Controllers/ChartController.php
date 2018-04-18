@@ -34,7 +34,7 @@ class ChartController extends Controller
             $to_date = date('Y-m-d H:i:s',strtotime($date_to));
 
             $current = DB::table('csv_chart')
-                ->select('MWCT_BR_001_ACT','MWCT_BR_002_ACT','MWCT_BR_003_ACT','MWCT_PR_001_ACT','MWCT_DS_001_ACT','MWCT_DS_002_ACT','MWCT_DS_003_ACT','MWCT_DS_004_ACT','MWCT_DS_005_ACT','MWCT_DS_006_ACT',DB::raw('CONCAT(Date," ",Time) as datetime'))
+                ->select('MWCT_BR_001_ACT','MWCT_BR_002_ACT',DB::raw('round(MWCT_BR_001_ACT,2) as MWCT_BR_003_ACT'),'MWCT_PR_001_ACT','MWCT_DS_001_ACT','MWCT_DS_002_ACT',DB::raw('round(MWCT_DS_003_ACT,2) as MWCT_DS_003_ACT'),DB::raw('round(MWCT_DS_004_ACT,2) as MWCT_DS_004_ACT'),'MWCT_DS_005_ACT','MWCT_DS_006_ACT',DB::raw('CONCAT(Date," ",Time) as datetime'))
                 ->whereBetween(DB::raw('CONCAT(Date," ",Time)'),array($from_date,$to_date))
                 ->orderby('datetime')
                 ->get();
@@ -44,6 +44,18 @@ class ChartController extends Controller
         {
             return redirect('charts')->with('danger', true)->with('message','Please Select Some Data to create chart');
         }
+    }
+    public function comment_box(){
+
+        $title =  $_GET['title'];
+        $category =  $_GET['cate'];
+        $comment =  $_GET['comment'];
+        $duretion =  $_GET['duration'];
+        $image_data =  $_GET['img1'];
+        $image = base64_decode($image_data);
+        $png_url = "product-".time().".jpg";
+        $path = public_path('img/designs/' . $png_url);
+
     }
 
 }
